@@ -1,0 +1,34 @@
+1. How do we measure the length of the critical rendering path? (10 pts)
+The number of actions the browser must take (eg run js, build cssom, build dom, etc) in order to fully load and render your page
+
+
+2. What are the events in the Timeline pane which show the DOM being built, the CSSOM being built, and the render tree being built? (10 pts)
+Parse HTML, Parse CSS, Layout
+
+3. What is the render tree? (10 pts) it's the structure that captures the content and properties of the html and all relationships between the nodes once all tokens are consumed, also know as the DOM(document object model) tree
+
+4. What are three things you can do in order to speed up a website's load time? (10 pts) 
+	1. minify, compress and cache your html, css and javascript
+	2. minimize the use of render blocking resources by using media queries on <link> to unblock rendering and inline css
+	3. minimize the use of parser blocking resources by defering javascript executior OR use an async attribute on the script
+	utilizing these methods will ultimately help accomplish three things that will speed load time: minimizing the amount of data(bytes) to send, reducing the number of critical resources, and shorten hte critical rending path(CRP) length
+
+5. What is the name of the Google tool you can use to see a list of things you can do to improve your page's load speed? (10 pts): Developer tools(Timeline or Performance)
+
+6. What is the purpose of including multiple <source> elements within a single <video> element? allows the browser to find and play multiple videos you have sourced much faster rather than seaching for each individual video, it also allows for videos to become part of the web document
+
+7. Use browserify to bundle all the files in the following project: https://github.com/Swolebrain/connect4
+Setup Steps:
+
+Fork the project by going to the above link and clicking "Fork" near the top right of the screen
+The project will now have a copy in your own github page. Clone it from there.
+In your computer, initialize this folder as a node project.
+Install browserify, make sure it's saved as a development dependency in package.json
+Split out the code from the createTable function and the isLegitEdge function into separate files. Make sure each function has its own file.
+Back in your main file, require the contents of your two new files
+Create an npm script to use browserify to create a javascript bundle (one single file containing all your JS).
+Do anything else you need to do in order to get the bundle working and test your site.
+Before submitting, ensure your code is browserified. If the first line is not a long, minified function then you did it wrong.
+Commit and push to github
+Upload the game to yourname.fvi-grad.com
+Bonus points: Produce a minified bundle for the exercise above using uglifyjs.
