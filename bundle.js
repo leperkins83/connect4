@@ -1,5 +1,12 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-
+function fadeInDots() {
+  var dots = document.querySelectorAll('.dot');
+  for(let i = 0; i < dots.length; i++) {
+    setTimeout(function() {
+      dots[i].classList.add('appear');
+    }, 100 + Math.random() * 1500);
+  }
+}
 
 function createTable(side){
   var tbody = document.getElementById("matrix");
@@ -24,6 +31,9 @@ function createTable(side){
   }
 };
 
+
+module.exports = createTable;
+
 },{}],2:[function(require,module,exports){
 
 function isLegitEdge(prev, current){
@@ -40,9 +50,11 @@ function isLegitEdge(prev, current){
   return false;
 };
 
+module.exports = isLegitEdge;
+
 },{}],3:[function(require,module,exports){
-var play = require('./createTable.js');
-var play = require('./isLegitEdge.js');
+var createTable = require('./createTable.js');
+var isLegitEdge = require('./isLegitEdge.js');
 
 //var newEdge = {
 //  turn: 0,
@@ -58,15 +70,6 @@ var redScore = 0;
 var blueScore = 0;
 var SIDES = 8;
 var newEdge;
-
-function fadeInDots() {
-  var dots = document.querySelectorAll('.dot');
-  for(let i = 0; i < dots.length; i++) {
-    setTimeout(function() {
-      dots[i].classList.add('appear');
-    }, 100 + Math.random() * 1500);
-  }
-}
 
 
 function handleClick(e){

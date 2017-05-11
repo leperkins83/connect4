@@ -1,5 +1,5 @@
-var play = require('./createTable.js');
-var play = require('./isLegitEdge.js');
+var createTable = require('./createTable.js');
+var isLegitEdge = require('./isLegitEdge.js');
 
 //var newEdge = {
 //  turn: 0,
@@ -15,15 +15,6 @@ var redScore = 0;
 var blueScore = 0;
 var SIDES = 8;
 var newEdge;
-
-function fadeInDots() {
-  var dots = document.querySelectorAll('.dot');
-  for(let i = 0; i < dots.length; i++) {
-    setTimeout(function() {
-      dots[i].classList.add('appear');
-    }, 100 + Math.random() * 1500);
-  }
-}
 
 
 function handleClick(e){

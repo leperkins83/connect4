@@ -12,3 +12,5 @@ function isLegitEdge(prev, current){
   if (thisCol==activeCol && thisRow==activeRow+1) return "up";
   return false;
 };
+
+module.exports = isLegitEdge;
